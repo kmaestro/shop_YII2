@@ -1,3 +1,13 @@
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+# phpstorm project files
+.idea
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
