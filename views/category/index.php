@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Html;
 
-$this->title = 'Yii';
 ?>
 <section id="slider"><!--slider-->
     <div class="container">
@@ -124,7 +123,7 @@ $this->title = 'Yii';
                                     <p><?=$hit->name?></p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
-                                
+
                                 <?php if ($hit->new):?>
                                     <?=Html::img("@web/images/home/new.png", ['alt' => 'new', 'class' => 'new'])?>
 
