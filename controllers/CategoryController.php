@@ -27,6 +27,13 @@ class CategoryController extends AppController
     {
         $id = Yii::$app->request->get('id');
         //$products = Product::find()->where(['category_id' => $id])->all();
+
+        $category = Category::findOne($id);
+
+        if (empty($category))
+            throw new \yii\web\HttpException(404, 'Такой котегории нет');
+
+
         $query = Product::find()->where(['category_id' => $id]);
         $pages = new Pagination([
             'totalCount' => $query->count(),
@@ -35,7 +42,7 @@ class CategoryController extends AppController
             'pageSizeParam' => false
         ]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
-        $category = Category::findOne($id);
+
         $this->setMeta('E-SHOPPER | ' . $category->name, $category->keywords, $category->description);
         return $this->render('view', compact('products', 'pages','category'));
     }
