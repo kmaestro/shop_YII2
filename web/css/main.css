@@ -705,17 +705,14 @@ h2.title:before{
 	left: 50%;
 	margin-left: -110px;
 }
-
-ul.category-products {
-  padding-left: 10px;
+ul.category-products{
+    padding-left: 10px;
 }
-
-.category-products ul {
-  padding-left: 10px;
+.category-products ul{
+    padding-left: 10px;
 }
-
-.category-products li {
-  padding: 5px 0 5px 10px;
+.category-products li{
+    padding: 5px 0 5px 10px;
 }
 
 .category-products .panel {
@@ -726,8 +723,7 @@ ul.category-products {
 	margin-bottom: 0px;
 }
 
-.category-products .panel-default .panel-heading,
-{
+.category-products .panel-default .panel-heading{
   background-color: #FFFFFF;
   border: 0 none;
   color: #FFFFFF;
