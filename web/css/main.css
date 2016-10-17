@@ -8,9 +8,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background:;
   position: relative;
-  font-weight:400px;
 }
 
 ul li {
@@ -32,6 +30,9 @@ a {
   -moz-transition: 300ms;
     -o-transition: 300ms;
     transition: 300ms;
+}
+.del-item {
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {

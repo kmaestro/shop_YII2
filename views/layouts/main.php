@@ -10,29 +10,29 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
 
-
 AppAsset::register($this);
 ltAppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
-
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
+    <?php
+//        $this->registerJsFile('js/html5shiv.js', ['position' => \yii\web\View::POS_HEAD, 'condition' => 'lte IE9']);
+//        $this->registerJsFile('js/respond.min.js', ['position' => \yii\web\View::POS_HEAD, 'condition' => 'lte IE9']);
+    ?>
 
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-
 </head><!--/head-->
 
 <body>
@@ -69,9 +69,8 @@ ltAppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="<?=\yii\helpers\Url::home()?>"><?=Html::img('@web/images/home/logo.png', ['alt' => 'E-SHOPPER'])?></a>
+                        <a href="<?= \yii\helpers\Url::home()?>"><?= Html::img('@web/images/home/logo.png', ['alt' => 'E-SHOPPER'])?></a>
                     </div>
-                    <img src="" alt="" />
                     <div class="btn-group pull-right">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
@@ -102,7 +101,7 @@ ltAppAsset::register($this);
                             <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart" onclick="return getCart()"></i> Cart</a></li>
                             <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
@@ -131,7 +130,7 @@ ltAppAsset::register($this);
                                     <li><a href="shop.html">Products</a></li>
                                     <li><a href="product-details.html">Product Details</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="#" onclick="return getCart()">Cart</a></li>
                                     <li><a href="login.html">Login</a></li>
                                 </ul>
                             </li>
@@ -148,10 +147,9 @@ ltAppAsset::register($this);
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <form action="<?=\yii\helpers\Url::to(['/category/search'])?>" method="get">
-                            <input type="text" placeholder="Search" name="q"/>
+                        <form method="get" action="<?= \yii\helpers\Url::to(['category/search'])?>">
+                            <input type="text" placeholder="Search" name="q">
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -159,7 +157,7 @@ ltAppAsset::register($this);
     </div><!--/header-bottom-->
 </header><!--/header-->
 
-<?= $content?>
+<?= $content ?>
 
 <footer id="footer"><!--Footer-->
     <div class="footer-top">
@@ -319,7 +317,18 @@ ltAppAsset::register($this);
 
 </footer><!--/Footer-->
 
+<?php
+\yii\bootstrap\Modal::begin([
+    'header' => '<h2>Корзина</h2>',
+    'id' => 'cart',
+    'size' => 'modal-lg',
+    'footer' => '<button type="button" class="btn btn-default" data-dismiss="model">Продольжить покупку</button>
+                <button type="button" class="btn btn-success">Оформить заказ</button>
+                <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>'
+]);
+?>
 
+<?php \yii\bootstrap\Modal::end()?>
 
 <?php $this->endBody() ?>
 </body>
