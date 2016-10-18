@@ -89,6 +89,7 @@ use yii\helpers\Html;
             <?php endif?>
             <?php if($product->sale): ?>
                 <?= Html::img("@web/images/home/sale.png", ['alt' => 'Распродажа', 'class' => 'newarrival'])?>
+                
             <?php endif?>
             <h2><?= $product->name?></h2>
             <p>Web ID: 1089772</p>
