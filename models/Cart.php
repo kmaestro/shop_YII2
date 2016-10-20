@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Andrey
+ * Date: 14.05.2016
+ * Time: 10:40
+ */
 
 namespace app\models;
 use yii\db\ActiveRecord;
@@ -6,11 +12,9 @@ use yii\db\ActiveRecord;
 class Cart extends ActiveRecord{
 
     public function addToCart($product, $qty = 1){
-        if (isset($_SESSION['cart'][$product->id]))
-        {
+        if(isset($_SESSION['cart'][$product->id])){
             $_SESSION['cart'][$product->id]['qty'] += $qty;
-        } else
-        {
+        }else{
             $_SESSION['cart'][$product->id] = [
                 'qty' => $qty,
                 'name' => $product->name,
@@ -22,10 +26,8 @@ class Cart extends ActiveRecord{
         $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $qty * $product->price : $qty * $product->price;
     }
 
-    public function recalc($id)
-    {
-        if (!isset($_SESSION['cart'][$id])) return false;
-
+    public function recalc($id){
+        if(!isset($_SESSION['cart'][$id])) return false;
         $qtyMinus = $_SESSION['cart'][$id]['qty'];
         $sumMinus = $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
         $_SESSION['cart.qty'] -= $qtyMinus;
