@@ -2,16 +2,15 @@
 
 namespace app\models;
 
-use Yii;
 use yii\db\ActiveRecord;
+use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
-
 
 /**
  * This is the model class for table "order".
  *
- * @property integer $id
+ * @property string $id
  * @property string $created_at
  * @property string $updated_at
  * @property integer $qty
@@ -32,13 +31,7 @@ class Order extends ActiveRecord
         return 'order';
     }
 
-    public function getOrderItems()
-    {
-        return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
-    }
-
-    public function behaviors()
-    {
+    public function behaviors(){
         return [
             [
                 'class' => TimestampBehavior::className(),
@@ -47,9 +40,13 @@ class Order extends ActiveRecord
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
                 ],
                 // если вместо метки времени UNIX используется datetime:
-                 'value' => new Expression('NOW()'),
+                'value' => new Expression('NOW()'),
             ],
         ];
+    }
+
+    public function getOrderItems(){
+        return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
     }
 
     /**
