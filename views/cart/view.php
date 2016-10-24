@@ -4,22 +4,17 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 ?>
 <div class="container">
-    <?php if (Yii::$app->session->hasFlash('success')):?>
-        <div class="alert alert-success alert-dismissable" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-
-            </button>
-            <?php echo Yii::$app->session->getFlash('success')?>
+    <?php if( Yii::$app->session->hasFlash('success') ): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('success'); ?>
         </div>
     <?php endif;?>
 
-    <?php if (Yii::$app->session->hasFlash('error')):?>
-        <div class="alert alert-danger alert-dismissable" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <?php echo Yii::$app->session->getFlash('error')?>
+    <?php if( Yii::$app->session->hasFlash('error') ): ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('error'); ?>
         </div>
     <?php endif;?>
     <?php if(!empty($session['cart'])): ?>
@@ -39,12 +34,10 @@ use yii\widgets\ActiveForm;
                 <?php foreach($session['cart'] as $id => $item):?>
                     <tr>
                         <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 50]) ?></td>
-                        <td><a href="<?=Url::to(['product/view', 'id' => $id])?>"><?= $item['name']?></a></td>
+                        <td><a href="<?= Url::to(['product/view', 'id' => $id])?>"><?= $item['name']?></a></td>
                         <td><?= $item['qty']?></td>
                         <td><?= $item['price']?></td>
-                        <td><?= $item['price'] * $item['qty']?></td>
-
-
+                        <td><?= $item['qty'] * $item['price']?></td>
                         <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
                     </tr>
                 <?php endforeach?>
@@ -59,7 +52,7 @@ use yii\widgets\ActiveForm;
                 </tbody>
             </table>
         </div>
-        <hr>
+        <hr/>
         <?php $form = ActiveForm::begin()?>
         <?= $form->field($order, 'name')?>
         <?= $form->field($order, 'email')?>

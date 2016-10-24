@@ -8,7 +8,9 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background:;
   position: relative;
+  font-weight:400px;
 }
 
 ul li {
@@ -30,9 +32,6 @@ a {
   -moz-transition: 300ms;
     -o-transition: 300ms;
     transition: 300ms;
-}
-.del-item {
-  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1177,7 +1176,9 @@ h2.title {
   margin-top: 10px;
 }
 
-
+.del-item{
+    cursor: pointer;
+}
 
 .view-product {
   position: relative;
@@ -2404,10 +2405,10 @@ h2.title {
 }
 
 .btn.btn-primary {
-  background:#FE980F;
+  /*background:#FE980F;
   border: 0 none;
   border-radius: 0;
-  margin-top: 16px;
+  margin-top: 16px;*/
 }
 
 .blank-arrow {
