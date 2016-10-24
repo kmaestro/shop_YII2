@@ -11,8 +11,6 @@ use yii\web\Controller;
 
 class AppController extends Controller{
 
-    public $layout = 'main';
-
     protected function setMeta($title = null, $keywords = null, $description = null){
         $this->view->title = $title;
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => "$keywords"]);
