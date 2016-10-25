@@ -102,10 +102,13 @@ use yii\helpers\Html;
                                         Add to cart
                                     </a>
 								</span>
+            <?= $product->content?>
+            <hr>
             <p><b>Availability:</b> In Stock</p>
             <p><b>Condition:</b> New</p>
             <p><b>Brand:</b> <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $product->category->id]) ?>"><?= $product->category->name?></a></p>
             <a href=""><img src="/images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+
         </div><!--/product-information-->
     </div>
 </div><!--/product-details-->
