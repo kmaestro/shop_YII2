@@ -9984,6 +9984,7 @@
 127.0.0.1 - - [24/Oct/2016:20:00:38 +0300] "GET /debug/default/toolbar?tag=580e3e35f2e52 HTTP/1.1" 200 6179 "http://shop.loc/admin/order/index?page=2&per-page=5" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
 127.0.0.1 - - [24/Oct/2016:20:00:40 +0300] "GET /admin/category/index HTTP/1.1" 200 8803 "http://shop.loc/admin/order/index?page=2&per-page=5" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
 127.0.0.1 - - [24/Oct/2016:20:00:41 +0300] "GET /debug/default/toolbar?tag=580e3e385ba2e HTTP/1.1" 200 6181 "http://shop.loc/admin/category/index" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
+<<<<<<< HEAD
 127.0.0.1 - - [24/Oct/2016:23:34:18 +0300] "GET / HTTP/1.1" 200 10398 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
 127.0.0.1 - - [24/Oct/2016:23:34:18 +0300] "GET /css/bootstrap.min.css HTTP/1.1" 200 99548 "http://shop.loc/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
 127.0.0.1 - - [24/Oct/2016:23:34:18 +0300] "GET /css/font-awesome.min.css HTTP/1.1" 200 17780 "http://shop.loc/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
@@ -10511,3 +10512,5 @@
 127.0.0.1 - - [25/Oct/2016:16:31:03 +0300] "GET /images/home/map.png HTTP/1.1" 304 0 "http://shop.loc/admin/product/update?id=1" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
 127.0.0.1 - - [25/Oct/2016:16:31:04 +0300] "GET /debug/default/toolbar?tag=580f5e977015b HTTP/1.1" 200 6179 "http://shop.loc/admin/product/update?id=1" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
 127.0.0.1 - - [25/Oct/2016:16:31:04 +0300] "GET /images/home/searchicon.png HTTP/1.1" 304 0 "http://shop.loc/css/main.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36"
+=======
+>>>>>>> origin/master
