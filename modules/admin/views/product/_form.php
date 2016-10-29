@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
+mihaildev\elfinder\Assets::noConflict($this);
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
@@ -12,32 +13,24 @@ use mihaildev\elfinder\ElFinder;
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <div class="form-group field-category-parent_id has-success">
-        <label class="control-label" for="category-parent_id">Родительская категория</label>
-        <select id="category-parent_id" class="form-control" name="Category[parent_id]">
-            <option value="0">Самостоятельная категория</option>
+    <div class="form-group field-product-category_id has-success">
+        <label class="control-label" for="product-category_id">Родительская категория</label>
+        <select id="product-category_id" class="form-control" name="Product[category_id]">
             <?= \app\components\MenuWidget::widget(['tpl' => 'select_product', 'model' => $model])?>
         </select>
     </div>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-   <?php
-
-   echo  $form->field($model, 'content')->widget(CKEditor::className(), [
-
-  'editorOptions' => ElFinder::ckeditorOptions(['elfinder'],[/* Some CKEditor Options */]),
-
+    <?php
+    ?>
+    <?php
+    echo $form->field($model, 'content')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder', [])
     ]);
-   /*echo $form->field($model, 'content')->widget(CKEditor::className(),[
-    'editorOptions' => [
-    'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-    'inline' => false, //по умолчанию false
-    ],
-    ]);*/
-   ?>
+    ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -45,9 +38,10 @@ use mihaildev\elfinder\ElFinder;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image')->fileInput() ?>
+    <?= $form->field($model, 'gallery[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
-    <?= $form->field($model, 'hit')->checkbox([ '0', '1', ])?>
+    <?= $form->field($model, 'hit')->checkbox([ '0', '1', ]) ?>
 
     <?= $form->field($model, 'new')->checkbox([ '0', '1', ]) ?>
 
